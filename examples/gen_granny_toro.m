@@ -8,29 +8,27 @@ function gen_granny_toro
   [pnts,conn,line1,line2] = generate_closed_tube(type,R,nr,x,y,z) ;
 
   clf ;
-  plot_tube(pnts,conn,line1,line2,'FaceColor',[1.000, 1.000, 0.5]) ;
-
-  fileID = fopen( 'granny_toro.geo', 'w' ) ;
-  fprintf(fileID,'algebraic3d\n\n') ;
+  plot_cube([ 2*4  2*3  2*3],[-4 -3 -3],.0,[1 0 0]);
+  plot_tube(pnts,conn,[],[],'FaceColor',[1.000, 1.000, 0.5]) ;
   
   [x,y,z] = toro(16) ;
   PIN{2} = [x(2),y(2),z(2)] ; % save point inside
   x    = 2*x ;
   y    = 2*y ;
   z    = 2*z ;
-  nr   = 4   ;
+  nr   = 6   ;
   R    = 0.5 ;
   type = 3   ;
   [pnts1,conn1,line1,line2] = generate_closed_tube(type,R,nr,x,y,z) ;
 
-  plot_cube([ 2*4  2*3  2*3],[-4 -3 -3],.0,[1 0 0]);
-  plot_tube(pnts,conn,line1,line2,'FaceColor',[1.000, 0.600, 1.000]) ;
+  plot_tube(pnts1,conn1,[],[],'FaceColor',[1.000, 0.600, 1.000]) ;
+  view(30,30) ;
   
   PNTS = { pnts, pnts1 } ;
   CONN = { conn, conn1 } ;
   NAME = { 'granny', 'toro' } ;
-  save_netgen( 'granny_toro.geo', NAME, PNTS, CONN ) ;
 
+  save_netgen( 'granny_toro.geo', NAME, PNTS, CONN ) ;
   save_tetgen( 'granny_toro.poly', NAME, PIN, PNTS, CONN ) ;
 
   [pnts,conn] = join_tubes( PNTS, CONN ) ;
