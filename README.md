@@ -28,24 +28,24 @@ typ is the kind of polygons are used to describe the tube
 
 return values are
 
-  - pnts the points of the mesh os the tube as a matric 3 by npts
+  - pnts the points of the mesh os the tube as a matrix 3 by npts
   - conn cell array where each element is a vector of integer with represents 
     the connection of the faces with the points
-  - line1 and line2 are vectors of integer which reperesents the equator
+  - line1 and line2 are vectors of integer which represents the equator
     lines of the tube-torus. 
 
-This command asssume that the curve is closed, otherwise use
+This command assume that the curve is closed, otherwise use
 
 ~~~~~~~~~~~~~~~~~~~
 [pnts,conn] = generate_open_tube(typ,R,nr,xyz) ;
 [pnts,conn] = generate_open_tube(typ,R,nr,x,y,z) ;
 ~~~~~~~~~~~~~~~~~~~
 
-which egenrate an open tube.
-For typ = 0 there are two poligonal faces at teh begin and end
-of the tube, For typ > 0 this poligon is splitted in triangles.
+which generate an open tube.
+For typ = 0 there are two polygonal faces at the begin and end
+of the tube, For typ > 0 this polygon is split in triangles.
 
-**Ploting**
+**Plotting**
 to visualize a tube the utility function
 
 ~~~~~~~~~~~~~~~~~~~~
@@ -59,7 +59,7 @@ can be used. As optional parameter you can use
   - 'Line1Color', [r,g,b] = color of line 1
   - 'Line2Color', [r,g,b] = color of line 2
 
-**Input Oouput**
+**Input Output**
 A tube can be saved in a text file by using
 
 ~~~~~~~~~~~~~~~~~~~~
@@ -92,7 +92,7 @@ For tetgen use:
 bbox = save_tetgen(fileName,names,pin,pnts,conn);
 ~~~~~~~~~~~~~~~~~~~~
 
-tetgen needs the knowlegde of an internal point of the tube
+tetgen needs the knowledge of an internal point of the tube
 stored in `pin`.
 
 **Examples**

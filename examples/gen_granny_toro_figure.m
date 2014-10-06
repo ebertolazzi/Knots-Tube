@@ -7,7 +7,7 @@ function gen_granny_toro_figure
 
   h = figure() ;
   hold off ;
-  plot_cube([ 2*4  2*3  2*3],[-4 -3 -3],.0,[1 0 0]);
+  %plot_cube([ 2*4  2*3  2*3],[-4 -3 -3],.0,[1 0 0]);
   hold on ;
 
   [x,y,z] = granny(64) ;
@@ -27,7 +27,7 @@ function gen_granny_toro_figure
 
   hold on ;
   plot_tube(pnts,conn,[],[],'FaceColor',[0.5 1 0.1]) ;
-  axis([-4,4,-3,3,-3,3]) ;
+  %axis([-4,4,-3,3,-3,3]) ;
   view(40,50) ;
   save2pdf('toro_granny.pdf',h,600) ;
   
